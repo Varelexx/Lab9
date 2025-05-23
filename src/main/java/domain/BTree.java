@@ -408,4 +408,33 @@ public class BTree implements  Tree {
         return totalLeaves(node.left) + totalLeaves(node.right);
     }
 
+    public String printSubTree(Object element){
+        if (isEmpty())
+            return "Binary Tree is empty";
+
+        BTreeNode subTreeRoot = findNode(root, element);
+        if (subTreeRoot == null)
+            return "Element not found in the tree";
+
+        return printSubTree(subTreeRoot);
+
+    }
+    private String printSubTree (BTreeNode node){
+        if (node == null) return "";
+
+        String result = node.data + " ";
+        result += printSubTree(node.left);
+        result += printSubTree(node.right);
+        return result;
+    }
+    private BTreeNode findNode(BTreeNode node, Object element){
+        if (node == null) return null;
+        if (Utility.compare(node.data, element) == 0) return node;
+
+        BTreeNode leftSearch = findNode(node.left, element);
+        if (leftSearch != null) return leftSearch;
+
+        return findNode(node.right, element);
+    }
+
 }

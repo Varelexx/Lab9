@@ -39,6 +39,10 @@ class BTreeTest {
             System.out.println("Binary tree - nodes 2 child\n"+bTree.printNodes2Children());
             System.out.println(bTree.printNodesWithChildren());
             System.out.println("Total leaves: " + bTree.totalLeaves());
+            System.out.println("Binary tree - subtree:"+bTree.printSubTree(10));
+            System.out.println("Binary tree - subtree:"+bTree.printSubTree(20));
+            System.out.println("Binary tree - subtree:"+bTree.printSubTree(30));
+            System.out.println("Binary tree - subtree:"+bTree.printSubTree(40));
 
 
         } catch (TreeException e) {
